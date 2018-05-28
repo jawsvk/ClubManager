@@ -20,7 +20,7 @@ public class Booking {
 			error ="incomplete dates provided";
 		}
 		
-		else if(start.isAfter((end)){
+		else if(start.isAfter(end)){
 			error="end date cannot be earlier than start date";
 		}
 		this.M = m;

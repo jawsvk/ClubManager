@@ -23,7 +23,7 @@ public class ClubApplication {
 //		club1.removeMember(3);
 //		System.out.println("new list");
 //		club1.showMembers();
-		c
+		
 
 		club1.Show();
 	}
