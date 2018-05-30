@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Booking {
 	
@@ -9,25 +10,35 @@ public class Booking {
 	
 	//constructors
 	
-	public Booking(Member m, Facility f, LocalDateTime start, LocalDateTime end) {
+	public Booking(Member m, Facility f, LocalDateTime start, LocalDateTime end) throws BadBookingException{
+		
+	
+		//checking values
 		String error = null;
+		
 		//checking for errors
-		if(m==null || f ==null) {
-			error ="no member or facility provided";
-		}
+			if(m==null || f ==null) {
+				error ="no member or facility provided";
+				throw new BadBookingException(error);
+			}
+			
+			else if(start ==null || end ==null) {
+				error ="incomplete dates provided";
+				throw new BadBookingException(error);
+			}
+			
+			else if(start.isAfter(end)){
+				error="end date cannot be earlier than start date";
+				throw new BadBookingException(error);
+			}
+			
+			//assigning values
+			this.M = m;
+			this.F = f;
+			this.start = start;
+			this.end = end;
 		
-		else if(start ==null || end ==null) {
-			error ="incomplete dates provided";
-		}
 		
-		else if(start.isAfter(end)){
-			error="end date cannot be earlier than start date";
-		}
-		this.M = m;
-		this.F = f;
-		this.start = start;
-		this.end = end;
-				
 	}
 	
 	
@@ -64,5 +75,15 @@ public class Booking {
 		return flag;
 	}
 	
-
+	public void Show()
+	{
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("d-MMM-yyyy H:mm");
+		
+		System.out.println("Booking Details");
+		System.out.println("Member:\t" + M.toString());
+		System.out.println("Facility:\t" + F.toString());
+		System.out.println("Start: "+ start.format(df)+"\t"+"End"+end.format(df));
+		System.out.println();
+		
+	}
 }

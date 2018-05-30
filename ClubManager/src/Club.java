@@ -130,4 +130,12 @@ public class Club {
 		System.out.println("\n-------Facilities List----------");
 		showFacilities();
 	}
+	
+	public void ShowBookings(ArrayList<Booking> bookinglist)
+	{
+		for(Booking B : bookinglist)
+		{
+			B.Show();
+		}
+	}
 }
