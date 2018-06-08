@@ -1,7 +1,15 @@
+package model;
 import java.text.MessageFormat;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="facilities")
 public class Facility {
- private String name;
+@Id @Column (name="facilityname") private String name;
  private String description;
  
  //constructors

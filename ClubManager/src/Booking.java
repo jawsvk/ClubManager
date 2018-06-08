@@ -1,6 +1,9 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import model.Facility;
+import model.Member;
+
 public class Booking {
 	
 	private Member M;

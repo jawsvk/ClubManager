@@ -1,8 +1,17 @@
+package model;
 
-public class Member extends Person{
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="member")
+public class Member extends Person implements Comparable<Member> {
 
 	private int memNumber;
 	
+	public Member() {
+		super();
+	}
 	public Member(String firstName, String surName, int memNum)
 	{
 		super(firstName,surName);
@@ -17,13 +26,20 @@ public class Member extends Person{
 		
 	}
 	
-	public int getMemberNumber()
+	public Integer getMemberNumber()
 	{
 		return this.memNumber;
 	}
 	public String toString()
 	{
 		return (super.toString()+ " " + this.memNumber);
+		
+	}
+	
+	@Override
+	public int compareTo(Member other)
+	{
+		return this.getMemberNumber().compareTo(other.getMemberNumber());
 		
 	}
 }

@@ -1,8 +1,14 @@
+package model;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class Person {
-	private String firstName;
-	private String surName;
-	private String secondName;
+	@Column(name="firstname") private String firstName;
+	@Id @Column(name="surname") private String surName;
+	@Column(name="secondname") private String secondName;
 	
 	//constructor
 	public Person(String surName, String firstName,  String secondName) 
@@ -16,6 +22,10 @@ public class Person {
 	{
 		this(firstName,surName,"");
 		
+	}
+
+	public Person() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getSurName()

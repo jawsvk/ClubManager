@@ -1,5 +1,9 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+
+import model.Facility;
+import model.Member;
 
 
 public class Club {
@@ -121,6 +125,13 @@ public class Club {
 			m.Show();
 		}
 	
+	}
+	
+	public Member[] sortByMemNumber()
+	{
+		Collections.sort(memberList);
+		return memberList.toArray(new Member[memberList.size()]);
+		
 	}
 	
 	public void Show()
